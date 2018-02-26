@@ -1,3 +1,64 @@
-<p>
-  header works!
-</p>
+<div class="wrapper">
+  <div class="left-wrapper" [ngClass]="{'left-wrapper-c':navClose,'left-wrapper-o':!navClose}">
+    <div class="header">
+      <img src="assets/img/logo.jpg" />
+      <h3>GODEYES</h3>
+    </div>
+    <div class="header-profile">
+      <div ngbDropdown>
+        <img alt="image" class="rounded-circle" [src]="mainData.userData.userAvatar" />
+        <div class="user-profile">
+          <span ngbDropdownToggle>{{mainData.userData.userName}}</span>
+        </div>
+        <div ngbDropdownMenu  class="dropdown-menu animated fadeIn">
+          <button class="dropdown-item" ><i class="fa  fa-user-circle-o  fa-fw"></i> 个人资料</button>
+          <button class="dropdown-item" ><i class="fa  fa-key fa-fw"></i> 修改密码</button>
+          <button class="dropdown-item" ><i class="fa  fa-sign-out fa-fw"></i> 退出系统</button>
+        </div>
+      </div>
+    </div>
+
+    <app-sidebar-menu [data]="mainData.menuData"></app-sidebar-menu>
+
+  </div>
+  <div class="right-wrapper" [ngClass]="{'right-wrapper-c':navClose,'right-wrapper-o':navClose}">
+    <div class="header">
+      <div class="title">
+        <button class="btn btn-light btn-xs" (click)="toggleNav()" placement="right" [ngbTooltip]="toggleDescTip">
+          <i class="fa fa-dedent fa-fw" [hidden]="navClose"></i>
+          <i class="fa fa-indent fa-fw" [hidden]="!navClose"></i>
+        </button>
+        <h3>{{title}}</h3>
+      </div>
+      <div class="tools">
+        <ul class="nav nav-pills pull-right">
+          <li class="item">
+            <i class="fa fa-bell fa-lg"></i>
+            <span>通知</span>
+          </li>
+          <li class="item">
+            <i class="fa fa-question-circle fa-lg"></i>
+            <span>帮助文档</span>
+          </li>
+          <li class="user" ngbDropdown>
+            <div *ngIf="!isLogin">
+              <i class="fa fa-user-circle fa-lg noLogin" aria-hidden="true"></i>
+              <span>未登录</span>
+            </div>
+            <div *ngIf="isLogin">
+              <div ngbDropdownToggle class="d-inline-block">
+                <img class="rounded-circle" [src]="mainData.userData.userAvatar" />
+                <span>{{mainData.userData.userName}}</span>
+              </div>
+              <div ngbDropdownMenu class="dropdown-menu animated fadeIn">
+                <button class="dropdown-item" ><i class="fa  fa-user-circle-o  fa-fw"></i> 个人资料</button>
+                <button class="dropdown-item" ><i class="fa  fa-key fa-fw"></i> 修改密码</button>
+                <button class="dropdown-item"><i class="fa  fa-sign-out fa-fw"></i> 退出系统</button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

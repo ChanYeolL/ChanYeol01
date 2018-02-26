@@ -3,7 +3,11 @@ import {NgModule} from '@angular/core';
 import {SelectivePreloadingStrategy} from './selective-preloading-strategy';
 
 const appRoutes: Routes = [
-  {}
+  {
+    path: '',
+    redirectTo: '/main',
+    pathMatch: 'full',
+  }
 ];
 
 @NgModule({

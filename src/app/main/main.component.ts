@@ -2,11 +2,11 @@ import {Component, OnInit} from '@angular/core';
 import {MainData} from '../main.data';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  selector: 'app-main',
+  templateUrl: './main.component.html',
+  styleUrls: ['./main.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class MainComponent implements OnInit {
 
   isLogin: boolean;
   navClose: boolean = false;
@@ -34,14 +34,14 @@ export class HeaderComponent implements OnInit {
         'name': '消息框',
         'keyWord': 'mtk',
         'icon': 'fa-columns',
-        'url': '/app/demo/toastDemo'
+        'url': '/app/test'
       }, {
         'id': '3',
         'parentId': '1',
         'name': '模态框',
         'keyWord': 'modal',
         'icon': 'fa-columns',
-        'url': '/app/demo/modalDemo'
+        'url': '/app/home'
       }, {
         'id': '4',
         'parentId': '1',

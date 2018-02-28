@@ -5,14 +5,18 @@ import {SelectivePreloadingStrategy} from './selective-preloading-strategy';
 const appRoutes: Routes = [
   {
     path: '',
-    redirectTo: '/main',
+    redirectTo: 'app',
     pathMatch: 'full',
+  },
+  {
+    path: 'app',
+    loadChildren: 'app/main/main.module#MainModule'
   }
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(appRoutes, {preloadingStrategy: SelectivePreloadingStrategy, useHash: true})
+    RouterModule.forRoot(appRoutes)
   ],
   exports: [
     RouterModule

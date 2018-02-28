@@ -21,26 +21,26 @@
     <app-sidebar-menu [data]="mainData.menuData"></app-sidebar-menu>
 
   </div>
-  <div class="right-wrapper" [ngClass]="{'right-wrapper-c':navClose,'right-wrapper-o':navClose}">
-    <div class="header">
-      <div class="title">
-        <button class="btn btn-light btn-xs" (click)="toggleNav()" placement="right" [ngbTooltip]="toggleDescTip">
+  <div class="c-right-wrapper" [ngClass]="{'c-right-wrapper-c': navClose,'c-right-wrapper-o': !navClose}">
+    <div class="c-header">
+      <div class="c-title">
+        <button class="btn btn-light btn-xs" (click)="toggleNav();" placement="right" [ngbTooltip]="toggleDescTip">
           <i class="fa fa-dedent fa-fw" [hidden]="navClose"></i>
           <i class="fa fa-indent fa-fw" [hidden]="!navClose"></i>
         </button>
         <h3>{{title}}</h3>
       </div>
-      <div class="tools">
+      <div class="c-tools">
         <ul class="nav nav-pills pull-right">
-          <li class="item">
+          <li class="c-item">
             <i class="fa fa-bell fa-lg"></i>
             <span>通知</span>
           </li>
-          <li class="item">
+          <li class="c-item">
             <i class="fa fa-question-circle fa-lg"></i>
             <span>帮助文档</span>
           </li>
-          <li class="user" ngbDropdown>
+          <li class="c-user" ngbDropdown>
             <div *ngIf="!isLogin">
               <i class="fa fa-user-circle fa-lg noLogin" aria-hidden="true"></i>
               <span>未登录</span>
@@ -58,6 +58,11 @@
             </div>
           </li>
         </ul>
+      </div>
+    </div>
+    <div class="c-content-wrapper" custom-scrollbar>
+      <div class="c-content">
+        <router-outlet></router-outlet>
       </div>
     </div>
   </div>

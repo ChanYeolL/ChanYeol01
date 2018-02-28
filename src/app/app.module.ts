@@ -2,24 +2,24 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
-import {HeaderComponent} from './header/header.component';
 import {AppService} from './app.service';
 import {AppRoutingModule} from './app-routing.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { SidebarMenuComponent } from './header/sidebar-menu/sidebar-menu.component';
-import { TreeviewMenuComponent } from './header/treeview-menu/treeview-menu.component';
+import {MainModule} from './main/main.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NgxEchartsModule} from 'ngx-echarts';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    SidebarMenuComponent,
-    TreeviewMenuComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
+    BrowserAnimationsModule,
     NgbModule.forRoot(),
+    NgxEchartsModule,
+    MainModule
   ],
   providers: [
     AppService,
